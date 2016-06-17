@@ -1,8 +1,9 @@
 <!--
-	 ÆÄ ÀÏ ¸í  : srList.jsp
-	 ÀÛ¼ºÀÏÀÚ  : 2016-04-06
-	 ÀÛ ¼º ÀÚ  : mailbest
-	 ³»    ¿ë  : SR¿äÃ» Á¶È¸¸®½ºÆ®
+	 íŒŒ ì¼ ëª…  : srList.jsp
+	 ì‘ì„±ì¼ì  : 2016-04-06
+	 ì‘ ì„± ì  : mailbest
+	 ë‚´    ìš©  : SRìš”ì²­ ì¡°íšŒë¦¬ìŠ¤íŠ¸
+	 test name addd 6.17.18.34
 -->
 <%@ page contentType="text/html;charset=ksc5601" errorPage="/common/error.jsp" %>
 <%@ page import="com.wms.fw.util.DateUtil"%>
@@ -23,7 +24,7 @@
 	request.setAttribute("fileName", "ResCheckOut.xml");
 	request.setAttribute("idx", "SCM_001");
 	request.setAttribute("parameters", parameters);
-	request.setAttribute("setString", "Y");//parameterÀ» ÄÃ·³¸íÀ¸·Î ÁöÁ¤ÇÒ¶§ »ç¿ë
+	request.setAttribute("setString", "Y");//parameterì„ ì»¬ëŸ¼ëª…ìœ¼ë¡œ ì§€ì •í• ë•Œ ì‚¬ìš©
 
 	parameters[0]="S_FR_DT";
 	
@@ -96,18 +97,18 @@ function initTop(){
 function init(){
 	var frm = document.forms[0];
 	//initTop();
-	//combobox ÃÊ±âÈ­
-	fn_combo('S_SR_SYSTEM',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//´ë»ó½Ã½ºÅÛ
-	fn_combo('S_SR_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//SRÀ¯Çü
-	fn_combo('S_SR_DOC_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//¹®¼­´Ü°è
-	fn_combo('S_SR_CONF_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//°áÀç»óÅÂ
-	fn_combo('S_SR_EMPID',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//¿äÃ»ÀÚ
-	fn_combo('S_SR_REV_EMPID',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//´ã´çÀÚ/Á¢¼öÀÚ
+	//combobox ì´ˆê¸°í™”
+	fn_combo('S_SR_SYSTEM',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//ëŒ€ìƒì‹œìŠ¤í…œ
+	fn_combo('S_SR_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//SRìœ í˜•
+	fn_combo('S_SR_DOC_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//ë¬¸ì„œë‹¨ê³„
+	fn_combo('S_SR_CONF_TYPE',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//ê²°ì¬ìƒíƒœ
+	fn_combo('S_SR_EMPID',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//ìš”ì²­ì
+	fn_combo('S_SR_REV_EMPID',new Array(frm.Fr_yymm.value,frm.To_yymm.value));	//ë‹´ë‹¹ì/ì ‘ìˆ˜ì
 }
 	
 function search(){
 		var frm = document.form1;
-		divSearch(); //Áö¿¬Ã¢ º¸ÀÌ±â
+		divSearch(); //ì§€ì—°ì°½ ë³´ì´ê¸°
 		frm.submit();	
 	}
 function create(){
@@ -119,7 +120,7 @@ function create(){
 
 function save(){
 	 var frm=document.forms[0];
-	      divSearch("Ã³¸® Áß ÀÔ´Ï´Ù."); //°Ë»ö Áö¿¬Ã¢ º¸ÀÌ±â
+	      divSearch("ì²˜ë¦¬ ì¤‘ ì…ë‹ˆë‹¤."); //ê²€ìƒ‰ ì§€ì—°ì°½ ë³´ì´ê¸°
 	      alert();
 	   frm._SCREEN.value='/CMS/srList.jsp';
 	   frm.action='asrMngSave.do';
@@ -128,31 +129,31 @@ function save(){
  } 
 function Excel(){
 	 var frm=document.forms[0];
-	      divSearch("¿¢¼¿´Ù¿î·Îµå Áß ÀÔ´Ï´Ù."); //°Ë»ö Áö¿¬Ã¢ º¸ÀÌ±â 
+	      divSearch("ì—‘ì…€ë‹¤ìš´ë¡œë“œ ì¤‘ ì…ë‹ˆë‹¤."); //ê²€ìƒ‰ ì§€ì—°ì°½ ë³´ì´ê¸° 
 	   frm.Action='/IpMng/IpMngExcel.jsp';
 	   frm.submit(); 
  } 
 function viewSource(SR_NO){
 	 var frm=document.forms[0];
-	   divSearch(); //°Ë»ö Áö¿¬Ã¢ º¸ÀÌ±â
+	   divSearch(); //ê²€ìƒ‰ ì§€ì—°ì°½ ë³´ì´ê¸°
 	   frm.action='/CMS/srView.jsp?S_SR_NO='+SR_NO;
 	   frm.target='_self';
 	   frm.submit(); 
  } 
 </script>
 </head>
-<title>º¸¾ÈÁ¶Ä¡°ü¸®</title>
+<title>ë³´ì•ˆì¡°ì¹˜ê´€ë¦¬</title>
 </head>
 <body text="#000000" bgcolor="#FFFFFF" topmargin="0" leftmargin="0" rightmargin="0" onload="init()" >
 <form name="form1" method="POST" action="">
-<!--°Ë»ö Áö¿¬ Ã¢-->
+<!--ê²€ìƒ‰ ì§€ì—° ì°½-->
 <div id=processing	style='position:absolute;height: 100%;display="none";overflow-x: none; overflow-y: auto; z-index: 5"z-index=999;background-color="#f0fff0";'></div>
 <input type="hidden" name="_SCREEN" >
 <table width="100%" cellspacing="0" cellpadding="0" border="0"class=loctitle id="table1">
 	<tr valign="middle">
 		<td width="20"></td>
 		<td width="30"><img src="../images/sign_position.gif" alt=""></td>
-		<td align="left">¹İÃâ¼Ò½º ¼±ÅÃ</td>
+		<td align="left">ë°˜ì¶œì†ŒìŠ¤ ì„ íƒ</td>
 		<td align="right"><jsp:include page="/common/comHelp.jsp?MU_CD=" flush="false" /></td>
 	</tr>
 </table>
@@ -163,7 +164,7 @@ function viewSource(SR_NO){
 	<table width=100% height='1' cellspacing=0 cellpadding=0 border=0  align=left class='trskin'>
 	   <TBODY ID="viewtitle">
 			<tr height="24" valign="middle" align="center">
-			    <td width="100%" class='viewContentH'>·¹ÆÄÁöÅä¸®ÀÌ¸§</td>
+			    <td width="100%" class='viewContentH'>ë ˆíŒŒì§€í† ë¦¬ì´ë¦„</td>
 			</tr>
 	   </TBODY>
    </table>
@@ -181,7 +182,7 @@ function viewSource(SR_NO){
 		<td class="viewContentSL" height="24" width="100"  onClick='viewSource"<%=set.get("WORKSPACE_ID", i)%>")' 
 		 onMouseOver="this.className='viewOnL'" onMouseOut="this.className='viewContentSL'"><%=set.get("VIEW_NAME", i)%></td>
 		 
-	  <%}}else{%><tr><td colspan='20' align='center' height="24">ÇØ´ç ÀÚ·á°¡ ¾ø½À´Ï´Ù.</td></tr>
+	  <%}}else{%><tr><td colspan='20' align='center' height="24">í•´ë‹¹ ìë£Œê°€ ì—†ìŠµë‹ˆë‹¤.</td></tr>
 	  <%}%>
   </table>
  </div>
@@ -191,17 +192,17 @@ function viewSource(SR_NO){
 		<table width=100% height='1' cellspacing=0 cellpadding=0 border=0  align=left class='trskin'>
 		   <TBODY ID="viewtitle">
 				<tr height="24" valign="middle" align="center">
-				    <td width="30"  class='viewContentH'>¼±ÅÃ</td>
+				    <td width="30"  class='viewContentH'>ì„ íƒ</td>
 					<td width="30"  class='viewContentH' style="display:none;">id</td>
-					<td width="200"  class='viewContentH'>¼Ò½º¸í</td>
-					<td width="280"  class='viewContentH'>°æ ·Î</td>
-					<td width="30"  class='viewContentH'>¹öÀü</td>
-					<td width="60"  class='viewContentH'>¹İÃâ¿©ºÎ</td>
-					<td width="70"  class='viewContentH'>ÆÄÀÏÅ©±â</td>
-					<td width="110"  class='viewContentH'>ÆÄÀÏ»ı¼ºÀÏ</td>
-					<td width="70"  class='viewContentH'>ÆÄÀÏ»ı¼ºÀÚ</td>
+					<td width="200"  class='viewContentH'>ì†ŒìŠ¤ëª…</td>
+					<td width="280"  class='viewContentH'>ê²½ ë¡œ</td>
+					<td width="30"  class='viewContentH'>ë²„ì „</td>
+					<td width="60"  class='viewContentH'>ë°˜ì¶œì—¬ë¶€</td>
+					<td width="70"  class='viewContentH'>íŒŒì¼í¬ê¸°</td>
+					<td width="110"  class='viewContentH'>íŒŒì¼ìƒì„±ì¼</td>
+					<td width="70"  class='viewContentH'>íŒŒì¼ìƒì„±ì</td>
 					<td width="70"  class='viewContentH' style="display:none;">WORKSPACE_ID</td>
-					<td width="70"  class='viewContentH' style="display:none;">½ÂÀÎ»óÅÂ</td>
+					<td width="70"  class='viewContentH' style="display:none;">ìŠ¹ì¸ìƒíƒœ</td>
 				</tr>
 		   </TBODY>
    		</table>
@@ -227,7 +228,7 @@ function viewSource(SR_NO){
 		 <td class="viewContentC" height="24" width="70" style="display:none;"><%=set.get("WORKSPACE_ID", i)%></td>
 		 <td class="viewContentC" height="24" width="70" style="display:none;"><%=set.get("WORKSPACE_ID", i)%></td>
 		 
-	  <%}}else{%><tr><td colspan='20' align='center' height="24">ÇØ´ç ÀÚ·á°¡ ¾ø½À´Ï´Ù.</td></tr>
+	  <%}}else{%><tr><td colspan='20' align='center' height="24">í•´ë‹¹ ìë£Œê°€ ì—†ìŠµë‹ˆë‹¤.</td></tr>
 	  <%}%>
   </table>
  </div>
@@ -239,6 +240,6 @@ function viewSource(SR_NO){
 </form>
 </body>
 <script language="javascript">
-	setDivSize(100,"viewlist"); //div»çÀÌÁî Á¶Àı
+	setDivSize(100,"viewlist"); //divì‚¬ì´ì¦ˆ ì¡°ì ˆ
 </script>
 </html>
